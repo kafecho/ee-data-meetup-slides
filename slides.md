@@ -36,45 +36,36 @@ Guillaume (**G**) Belrose
 
 # Agenda
 
-- About Data Engineering
-- About TDD
+- Some context on Data Engineering
 - EL**T** Data Pipelines
-- DBT and DBT unit testing
+- Data Pipelines with TDD
 - Experiences from production
-- Wrap-up
 
 ---
 
-# What: Data Engineers duties
+# What: Data Pipelines
 
 ![bg w:80%](assets/data-engineering.png) 
 
 ---
 
-# How: Data Engineering principles
+# How: ~~Software~~ Data Engineering principles
 
-> A software engineering specialism which takes the **best practices from** _traditional_ **software engineering** (building applications and systems) - but focuses these practices on the **data domain**.
-— Thorben Louw
-
----
-
-![bg w:95%](assets/software-engineering.png) 
-
----
-
-<!-- _class: lead -->
-
-# TDD in the context of Data Pipelines
+- **TDD** / unit testing
+- Automation
+- CI/CD
+- Telemetry
+- Operability
+- Iterative and incremental approaches
 
 ---
 
 # Test Driven Development
 
 * Write the test first :red_circle:
-* Pass the test :green_circle:
-* Refactor the code (cleaner, more expressive)
+* Write the code to pass the test :green_circle:
+* Keep on refactoring the logic (cleaner, more expressive)
 * Dave Farley's [TDD Is The Best Design Technique](https://www.youtube.com/watch?v=ln4WnxX-wrw)
-* !! More about **design** than testing !!
 
 ---
 
@@ -88,9 +79,9 @@ Guillaume (**G**) Belrose
 
 - Open-source CLI tool to build, test and maintain data pipelines
 - Transform data in the warehouse via **SELECT** statements
-- Built-in support for documentation, data lineage and quality tests
-- Suitable for anyone with SQL skills
+- Suitable for anyone with **SQL** skills
 - Easy to learn [fundamentals](https://courses.getdbt.com/courses/fundamentals) 
+- Built-in support **data quality checks**
 
 ---
 
@@ -98,71 +89,67 @@ Guillaume (**G**) Belrose
 
 # Some concepts
 
-- SQL template engine with Jinja2
-- Model references
+- Jinja2 SQL templating engine
+- **Models** and **references**
 - Macros
 
 ---
 
-# A Data Pipeline, in a galaxy far far away
+# A Star Wars Data Pipeline
 
-![bg h:60%](assets/star-wars-data-pipeline.png) 
-
---- 
-
-<!-- _class: lead -->
-
-# Demo
-
----
-
-<!-- _class: lead -->
-
-# SQλ
+![bg h:55%](assets/star-wars-data-pipeline.png) 
 
 ---
 
 # dbt-unit-testing
 
 - https://github.com/EqualExperts/dbt-unit-testing
-- From Equal Experts :love_letter:
-- `Adopt` on the TW radar https://www.thoughtworks.com/radar/tools/dbt
+- Extend dbt test with unit testing capability
+- `Adopt` on the Thoughtworks [radar](https://www.thoughtworks.com/radar/tools/dbt)
 
 ---
 
-# A Star Wars Travel Agency
+# A Star Wars Data Pipeline with TDD 
 
-- Given a customer's holiday preference(s)
-- Recommend Star Wars planets to visit
-
-```csv
-customer_name,vacation_type
-Darth Vader,volcanoes
-```
-:point_down:
-```csv
-customer_name,recommended_planet
-Darth Vader,Mustafar
-```
----
-
-<!-- _class: lead -->
-
-# Demo
+![bg w:80%](assets/star-wars-data-pipeline-with-tdd.png) 
 
 ---
-# Use in production
+# Experiences from production
 
 ![bg w:95%](assets/tales-from-production.png) 
+
+---
+# Data Ingestion Pipeline
+
+* Suppliers file formats (deeply nested JSON, fixed length format)
+* Parsing logic in SQL (text manipulation, regex, JSON unmarshalling in Snowflake)
+* Mock **incoming data** to validate logic
+
+---
+# Data Export Pipeline
+
+* Data contract agreed with 3rd party consumer
+* Format mapping (dates, flags, phone numbers)
+* Non trivial business logic to **produce** the data
+* Mock the **in warehouse data** to validate logic
+
+---
+# Data Compliance Pipeline
+
+* Respect of GDPR rules
+* Data to be erased or anonymised
+* Complicated business logic to identify suitable records (e.g. claims)
+* Complicated logic to anonymise data (back to the raw layer)
 
 ---
 
 # Findings
 
-* Tests **guide** design
+* For anything non trivial !!!
+* TDD **guides** design (CTE vs subquery, testable features)
 * Tests make you comfortable to **refactor** code
-* Tests **document** what the intent is
-* Early **feedback** (vs integration testing)
+* Much faster **feedback loop** (compared with integration tests)
+* **Documentation** as a side effect
 
 ---
 
@@ -174,7 +161,7 @@ Darth Vader,Mustafar
 
 # What if I don't use DBT?
 
-- SQL Mesh, Google dataform
+- ELT pipelines: SQL Mesh, Google dataform
 - TDD is a **practice**, try to apply it with your stack
 - Supported in many languages (Python, Scala)
 - Supported in many frameworks (Spark)
@@ -182,20 +169,15 @@ Darth Vader,Mustafar
 ---
 
 # The data quality arsenal
+
+> Organizations need good quality data for decision-making and insights
+* TDD is one part of the puzzle :jigsaw: 
 * Integration tests
 * Data Quality Checks
 * Alerting & Monitoring
 
 --- 
 
-# To conclude
-
-> The hardest part of having good metrics is having good data
-— Toby Mao, Data Engineering [Podcast](https://www.dataengineeringpodcast.com/sqlmesh-open-source-dataops-episode-380)
-
---- 
-
 <!-- _class: lead -->
 
 # Thank you!
-
