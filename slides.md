@@ -29,6 +29,8 @@ Guillaume (**G**) Belrose
 
 ![bg h:70%](assets/darth-vader-meme.jpg) 
 
+<!-- _footer: Make your own: https://imgflip.com/memegenerator/19005569/Darth-Vader -->
+
 ---
 
 <!-- paginate: true -->
@@ -99,6 +101,8 @@ Guillaume (**G**) Belrose
 
 ![bg h:55%](assets/star-wars-data-pipeline.png) 
 
+<!-- _footer: TDD for Data Engineering | Star Wars dataset: https://www.kaggle.com/datasets/jsphyg/star-wars -->
+
 ---
 
 # dbt-unit-testing
@@ -161,7 +165,7 @@ Guillaume (**G**) Belrose
 
 # What if I don't use DBT?
 
-- ELT pipelines: SQL Mesh, Google dataform
+- ELT pipelines: [SQLMesh](https://sqlmesh.com/), Google [dataform](https://cloud.google.com/dataform?hl=en)
 - TDD is a **practice**, try to apply it with your stack
 - Supported in many languages (Python, Scala)
 - Supported in many frameworks (Spark)
