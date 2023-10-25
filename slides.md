@@ -23,11 +23,11 @@ Guillaume (**G**) Belrose
 --- 
 <!-- header: ![image w:120px](assets/equal-experts-logo-white-blue-background.png) -->
 
-![bg w:70%](assets/hands-up.jpg) 
+![bg w:75%](assets/hands-up.jpg) 
 
 --- 
 
-![bg h:70%](assets/darth-vader-meme.jpg) 
+![bg h:75%](assets/darth-vader-meme.jpg) 
 
 <!-- _footer: Make your own: https://imgflip.com/memegenerator/19005569/Darth-Vader -->
 
@@ -47,7 +47,7 @@ Guillaume (**G**) Belrose
 
 # What: Data Pipelines
 
-![bg w:80%](assets/data-engineering.png) 
+![bg w:95%](assets/data-engineering.png) 
 
 ---
 
@@ -99,7 +99,7 @@ Guillaume (**G**) Belrose
 
 # A Star Wars Data Pipeline
 
-![bg h:55%](assets/star-wars-data-pipeline.png) 
+![bg h:60%](assets/star-wars-data-pipeline.png) 
 
 <!-- _footer: TDD for Data Engineering | Star Wars dataset: https://www.kaggle.com/datasets/jsphyg/star-wars -->
 
