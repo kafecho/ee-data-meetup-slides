@@ -20,17 +20,6 @@ blockquote {
 
 Guillaume (**G**) Belrose
 
---- 
-<!-- header: ![image w:120px](assets/equal-experts-logo-white-blue-background.png) -->
-
-![bg w:75%](assets/hands-up.jpg) 
-
---- 
-
-![bg h:75%](assets/darth-vader-meme.jpg) 
-
-<!-- _footer: Make your own: https://imgflip.com/memegenerator/19005569/Darth-Vader -->
-
 ---
 
 <!-- paginate: true -->
@@ -125,22 +114,22 @@ Guillaume (**G**) Belrose
 ---
 # Data Ingestion Pipeline
 
-* Suppliers file formats (deeply nested JSON, fixed length format)
-* Parsing logic in SQL (text manipulation, regex, JSON unmarshalling in Snowflake)
+* Suppliers file formats (e.g. deeply nested JSON)
+* Parsing logic in SQL (JSON unmarshalling, regex processing)
 * Mock **incoming data** to validate logic
 
 ---
 # Data Export Pipeline
 
 * Data contract agreed with 3rd party consumer
-* Format mapping (dates, flags, phone numbers)
+* Format mapping (dates, phone numbers)
 * Non trivial business logic to **produce** the data
-* Mock the **in warehouse data** to validate logic
+* Mock **in warehouse data** to validate logic
 
 ---
 # Data Compliance Pipeline
 
-* Respect of GDPR rules
+* e.g GDPR
 * Data to be erased or anonymised
 * Complicated business logic to identify suitable records (e.g. claims)
 * Complicated logic to anonymise data (back to the raw layer)
@@ -149,36 +138,19 @@ Guillaume (**G**) Belrose
 
 # Findings
 
-* For anything non trivial !!!
-* TDD **guides** design (CTE vs subquery, testable features)
+* Test for anything non trivial !!!
+* TDD **guides** design (CTE vs subquery)
 * Tests make you comfortable to **refactor** code
-* Much faster **feedback loop** (compared with integration tests)
+* Fast **feedback loop** (compared with integration tests)
 * **Documentation** as a side effect
 
 ---
 
-# Findings: production issues
-- Write a test case to replicate the problem
-- Implement the fix 
+# Other approaches
 
----
-
-# What if I don't use DBT?
-
-- ELT pipelines: [SQLMesh](https://sqlmesh.com/), Google [dataform](https://cloud.google.com/dataform?hl=en)
+- NEW dbt core built-in [unit testing feature](https://docs.getdbt.com/docs/build/unit-tests)
+- ELT pipelines: [SQLMesh](https://sqlmesh.com/)
 - TDD is a **practice**, try to apply it with your stack
-- Supported in many languages (Python, Scala)
-- Supported in many frameworks (Spark)
-
----
-
-# The data quality arsenal
-
-> Organizations need good quality data for decision-making and insights
-* TDD is one part of the puzzle :jigsaw: 
-* Integration tests
-* Data Quality Checks
-* Alerting & Monitoring
 
 --- 
 
